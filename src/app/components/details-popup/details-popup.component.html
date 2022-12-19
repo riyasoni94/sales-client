@@ -1,0 +1,114 @@
+<div class="modal-header">
+    <h4 class="modal-title">Car Buyer Details</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="name"><b>Name: {{buyerDetails.firstName}} {{buyerDetails.lastName}} </b></label>
+        </div>
+
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label for="age"><b>Age: {{buyerDetails.age}}</b></label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label for="address"><b>Address : {{buyerDetails.address}}</b></label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label for="phone"><b>Phone number: {{buyerDetails.phone}}</b></label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label for="city"><b>City: {{buyerDetails.city}}</b></label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label for="interestedIn"><b>Interested In: </b></label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="container">
+
+            <div class="example-container mat-elevation-z8">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+                    <!-- Rank Column -->
+                    <ng-container matColumnDef="rank">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> Rank
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.rank}}</mat-cell>
+                    </ng-container>
+
+                    <!-- Make Column -->
+                    <ng-container matColumnDef="make">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header>Make
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.make}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Model Column -->
+                    <ng-container matColumnDef="model">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> Model
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.model}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Year Column -->
+                    <ng-container matColumnDef="year">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> Year
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.year}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Sales Price Column -->
+                    <ng-container matColumnDef="price">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header>Sales Price
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.price}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Current Price Column -->
+                    <ng-container matColumnDef="currentPrice">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header>Current Price
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.currentPrice}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Mileage Column -->
+                    <ng-container matColumnDef="mileage">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> Mileage
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.mileage}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Transmission Column -->
+                    <ng-container matColumnDef="transmission">
+                        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> Transmission
+                        </mat-header-cell>
+                        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.transmission}} </mat-cell>
+                    </ng-container>
+                 
+
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer mt-3">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

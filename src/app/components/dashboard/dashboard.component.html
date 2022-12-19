@@ -1,0 +1,67 @@
+<div class="fixed-header">
+  <div class="container">
+    Stantec Sales Portal
+    <button mat-button color="primary" id="logout" (click)="logOut()"
+      style="outline: none;float: right;">Logout</button>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput [(ngModel)]="searchText" (keyup)="applyFilter()" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.firstName}}</mat-cell>
+      </ng-container>
+
+      <!--Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header>Last Name </mat-header-cell>
+        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.lastName}} </mat-cell>
+      </ng-container>
+
+      <!-- City Column -->
+      <ng-container matColumnDef="age">
+        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.city}} </mat-cell>
+      </ng-container>
+
+      <!-- Age Column -->
+      <ng-container matColumnDef="city">
+        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
+        <mat-cell style="border: 1px solid;" *matCellDef="let row"> {{row.age}} </mat-cell>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell style="border: 1px solid;" *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+        <mat-cell style="border: 1px solid;" *matCellDef="let row">
+          <button (click)="OpenDetailsPopup(row.id)"><mat-icon color="primary">visibility</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5]"></mat-paginator>
+  </div>
+</div>
+
+
+
+
+<div class="fixed-footer">
+  <div class="container">Copyright &copy; Stantec</div>
+</div>

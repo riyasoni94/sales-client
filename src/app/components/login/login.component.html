@@ -1,0 +1,25 @@
+
+<div class="login">
+    <h1>Login to Sales App</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmitted()">
+        <p><input type="email" required autocomplete="false" name="login" id="email" placeholder="Email"
+                formControlName="email"></p>
+        <div class="form-text text-danger" *ngIf="Email.errors?.['required'] &&(Email.dirty||Email.touched) ">
+            Email is required
+        </div>
+        <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+            Email is invalid
+        </div>
+        <p><input type="password" autocomplete="false" name="password" id="pwd" placeholder="Password"
+                formControlName="pwd"></p>
+        <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.dirty||Password.touched)">
+            Password is required
+        </div>
+        <div class="form-text text-danger" 
+        *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxLength']  && (Password.dirty||Password.touched)">
+            Password should be atleast 6 and the max 5 characters long.
+        </div>
+        <p class="submit"><input type="submit" [disabled]="loginForm.invalid" name="commit" value="Login"></p>
+    </form>
+</div>
+

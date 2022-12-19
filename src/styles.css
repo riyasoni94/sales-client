@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+    color: #404040;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    /* background: #404040; */
+}
+.modal-content{
+    width: 750px;
+}
+

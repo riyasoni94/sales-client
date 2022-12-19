@@ -1,0 +1,7 @@
+table, th, td {
+    border: 1px solid black;
+    font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+    color: #404040;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
